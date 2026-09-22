@@ -2,6 +2,8 @@ const chatForm = document.querySelector('#chat-form');
 const chatInput = document.querySelector('#chat-input');
 const messages = document.querySelector('#messages');
 
+const ws = new WebSocket(`ws://${location.host}`);
+
 function addMessage(message) {
     const messageItem = document.createElement('li');
     messageItem.textContent = message;
@@ -16,6 +18,7 @@ chatForm.addEventListener('submit', (event) => {
     if (!message) return;
 
     addMessage(message);
+    ws.send(message);
 
     chatInput.value = '';
     chatInput.focus();

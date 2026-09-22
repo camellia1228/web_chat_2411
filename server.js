@@ -66,6 +66,10 @@ const wss = new WebSocketServer({ server });
 wss.on("connection", (ws) => {
     console.log("클라이언트 연결");
 
+    ws.on("message", (data) => {
+        console.log(Buffer.from(data).toString("utf-8"));
+    });
+
     ws.on("close", () => {
         console.log("클라이언트 연결 해제");
     })
