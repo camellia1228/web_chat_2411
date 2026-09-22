@@ -1,8 +1,27 @@
-1. 개발 환경 구축, JavaScript 실행
-    -Visual Studio Code
-        -Codex 확장 기능
-    -Git
-    -Node.js
-    ```shell
-    node server.js
+- Node.js
+```shell
+node server.js
     ```
+    ```
+2. 정적 파일(html, css, js) 서버
+    - server.js
+        - server = http.createServer()
+        - server.listen()
+    -index.html
+    -#app
+        -header
+        -ul#messages
+        -form#chat-form
+            -input#chat-input
+            -button
+    -reset.css
+        -*
+        -ul
+    -style.css
+    -client.js
+3. WebSocket
+    1. `npm install ws`
+        - server.js
+            -WebSocketServer
+                - wss.on("connection", (ws) => {});
+                
