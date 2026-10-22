@@ -1,0 +1,47 @@
+@import url('theme-base.css');
+
+:root {
+    color-scheme: dark;
+    --bg: #03045e;
+    --page-bg: linear-gradient(180deg, #0096c7 0%, #0077b6 35%, #03045e 100%);
+    --surface: rgba(255, 255, 255, 0.12);
+    --ink: #f0fbff;
+    --ink-dim: #a9dbee;
+    --line: rgba(255, 255, 255, 0.28);
+    --accent: #90e0ef;
+    --accent-ink: #03045e;
+    --font: 'Pretendard', 'Noto Sans KR', sans-serif;
+    --radius: 22px;
+    --msg-radius: 20px 20px 20px 6px;
+    --bubble-bg: rgba(255, 255, 255, 0.2);
+    --bubble-border: 1px solid rgba(255, 255, 255, 0.4);
+    --send-icon: '🌊';
+    --shadow: 0 8px 28px rgba(0, 20, 80, 0.35);
+    --h1-spacing: 0.15em;
+}
+
+header,
+#chat-window,
+#chat-form { backdrop-filter: blur(12px); }
+
+#messages li { animation: float-in 0.7s ease-out both; }
+#messages li:nth-child(even) { margin-left: 12px; }
+
+@keyframes float-in {
+    from { opacity: 0; transform: translateY(28px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ===== 커서 ===== */
+html,
+body,
+#chat-window,
+header {
+    cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'32'%20height%3D'32'%20viewBox%3D'0%200%2032%2032'%3E%3Cpath%20d%3D'M16%203%20C16%203%207%2014%207%2020%20A9%209%200%200%200%2025%2020%20C25%2014%2016%203%2016%203Z'%20fill%3D'%2390e0ef'%20stroke%3D'%23fff'%20stroke-width%3D'1.5'%2F%3E%3C%2Fsvg%3E") 16 5, auto;
+}
+
+#theme-picker summary,
+#theme-list button,
+#chat-form button {
+    cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'32'%20height%3D'32'%20viewBox%3D'0%200%2032%2032'%3E%3Cpath%20d%3D'M16%203%20C16%203%207%2014%207%2020%20A9%209%200%200%200%2025%2020%20C25%2014%2016%203%2016%203Z'%20fill%3D'%23caf0f8'%20stroke%3D'%230077b6'%20stroke-width%3D'2'%2F%3E%3Cellipse%20cx%3D'16'%20cy%3D'27'%20rx%3D'11'%20ry%3D'3'%20fill%3D'none'%20stroke%3D'%23fff'%20stroke-width%3D'1.5'%2F%3E%3C%2Fsvg%3E") 16 5, pointer;
+}

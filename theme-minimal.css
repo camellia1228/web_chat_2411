@@ -1,0 +1,33 @@
+@import url('theme-base.css');
+
+:root {
+    color-scheme: light;
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --ink: #111;
+    --ink-dim: #9a9a9a;
+    --line: #ececec;
+    --accent: #111;
+    --accent-ink: #fff;
+    --font: 'Pretendard', 'Helvetica Neue', 'Noto Sans KR', sans-serif;
+    --radius: 0;
+    --msg-radius: 0;
+    --form-radius: 0;
+    --btn-radius: 0;
+    --send-icon: '→';
+    --header-border: 0;
+    --header-align: flex-start;
+    --h1-size: 0.8rem;
+    --h1-spacing: 0.35em;
+    --bubble-border: 0;
+    --bubble-bg: #f4f4f4;
+    --focus-shadow: none;
+}
+
+h1 { text-transform: uppercase; font-weight: 600; }
+header { min-height: 40px; padding: 0 4px; border-bottom: 1px solid var(--line); border-radius: 0; margin-bottom: 8px; }
+#chat-window { border: 0; padding: 12px 4px; }
+#chat-form { padding: 0 0 0 4px; border: 0; border-top: 1px solid var(--ink); }
+#chat-form:focus-within { border-color: var(--ink); }
+#chat-form button { flex-basis: 44px; }
+#chat-form button:hover { transform: none; }

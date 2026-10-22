@@ -1,0 +1,182 @@
+/* 공통 레이아웃 베이스. 테마 파일이 @import 한 뒤 --변수와 필요한 규칙만 덮어쓴다. */
+:root {
+    --pk-bg: var(--surface);
+    --pk-text: var(--ink);
+    --pk-border: var(--line);
+    --pk-accent: var(--accent);
+    --pk-radius: var(--radius, 12px);
+    --pk-font: var(--font);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 28px 16px;
+    color: var(--ink);
+    font-family: var(--font, system-ui, sans-serif);
+    font-size: 1rem;
+    background: var(--page-bg, var(--bg));
+    background-attachment: fixed;
+}
+
+#app {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.sparkle-layer,
+.crown,
+.ribbon {
+    display: none;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: var(--header-align, center);
+    min-height: 64px;
+    margin-bottom: 14px;
+    padding: 0 22px;
+    color: var(--header-ink, var(--ink));
+    border: var(--header-border, 1px solid var(--line));
+    border-radius: var(--radius, 12px);
+    background: var(--header-bg, var(--surface));
+    box-shadow: var(--shadow, none);
+}
+
+h1 {
+    font-family: var(--head-font, var(--font));
+    font-size: var(--h1-size, 1.4rem);
+    font-weight: 700;
+    letter-spacing: var(--h1-spacing, 0.04em);
+    color: var(--h1-color, var(--ink));
+    text-shadow: var(--h1-shadow, none);
+}
+
+#chat-window {
+    flex: 1 1 0;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius, 12px);
+    background: var(--window-bg, var(--surface));
+    box-shadow: var(--shadow, none);
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+}
+
+#messages {
+    list-style: none;
+}
+
+#messages li {
+    position: relative;
+    width: fit-content;
+    max-width: min(78%, 560px);
+    margin: 0 0 10px;
+    padding: 10px 15px;
+    color: var(--bubble-ink, var(--ink));
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+    border: var(--bubble-border, 1px solid var(--line));
+    border-radius: var(--msg-radius, 14px 14px 14px 4px);
+    background: var(--bubble-bg, var(--surface));
+    box-shadow: var(--bubble-shadow, none);
+    animation: message-in 0.3s ease-out both;
+}
+
+#messages li:last-child {
+    margin-bottom: 0;
+}
+
+#chat-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 6px 6px 6px 10px;
+    border: var(--form-border, 1px solid var(--line));
+    border-radius: var(--form-radius, 999px);
+    background: var(--form-bg, var(--surface));
+    box-shadow: var(--shadow, none);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#chat-form:focus-within {
+    border-color: var(--accent);
+    box-shadow: var(--focus-shadow, 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent));
+}
+
+#chat-input {
+    min-width: 0;
+    flex: 1;
+    padding: 10px 12px;
+    color: var(--ink);
+    font: inherit;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    caret-color: var(--accent);
+}
+
+#chat-input::placeholder {
+    color: var(--ink-dim);
+}
+
+#chat-form button {
+    position: relative;
+    flex: 0 0 42px;
+    min-height: 42px;
+    cursor: pointer;
+    border: 0;
+    border-radius: var(--btn-radius, 50%);
+    background: var(--accent);
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+#chat-form button::before {
+    content: var(--send-icon, '↑');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: var(--accent-ink, #fff);
+    font-size: 1.15rem;
+    font-weight: 700;
+    transform: translate(-50%, -50%);
+}
+
+#chat-form button:hover {
+    filter: brightness(1.12);
+    transform: scale(1.06);
+}
+
+#chat-form button:active {
+    transform: scale(0.94);
+}
+
+@keyframes message-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 520px) {
+    body { padding: 14px 8px; }
+    #messages li { max-width: 88%; }
+}
